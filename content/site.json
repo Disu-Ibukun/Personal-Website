@@ -9,7 +9,7 @@
     "linkedin": "https://www.linkedin.com/in/ibukunoluwa-disu/",
     "github": "https://github.com/Disu-Ibukun",
     "cv_file": "",
-    "portrait_file": "",
+    "portrait_file": "assets/portrait.webp",
     "site_url": "",
     "availability": "Open to early-career Data Engineering conversations",
     "phone": "+2347061027312"
@@ -21,12 +21,15 @@
     "secondary": "I studied Computer Science, completed an internship at Quidax, and have experience in entrepreneurship, debate, and leadership."
   },
   "about": {
-    "eyebrow": "The thinking behind the work",
-    "heading": "I care about what data tells us. I'm just as interested in what makes it usable.",
+    "eyebrow": "A little more about me",
+    "heading": "Curious about data, systems, and everything in between.",
     "paragraphs": [
-      "Data can help us understand what happened, see what is happening, and notice patterns that might inform what happens next. That range of possibilities is what first made me curious about it.",
-      "But data doesn't become valuable simply by existing. It has to be collected, organised, processed, stored, and made accessible. I'm drawn to Data Engineering because that work sits between information and the decisions people need to make.",
-      "Outside technical work, I enjoy public speaking, debate, and bringing people together to make ideas happen. These aren't separate from how I approach engineering; they've taught me to ask better questions, communicate clearly, and think about the people relying on a system."
+      "My name is Disu Ibukunoluwa. I'm a recent First Class Computer Science graduate from Covenant University and an emerging Data Engineer. I work with SQL, Python, and data visualisation tools, with experience in data modelling, dashboard design, and root-cause analysis that supports informed decision-making.",
+      "I became interested in data because it can help us understand what happened, see what is happening now, and spot patterns that might shape what happens next. That range of possibilities is what first sparked my curiosity.",
+      "But data doesn't become useful just because it exists. It has to be collected, organised, processed, stored, and made accessible. That's what draws me to Data Engineering: building the systems that connect information to the decisions people need to make.",
+      "When I'm not writing SQL or debugging code, I enjoy public speaking, debate, reading, and bringing people together to make ideas happen. I'm also fascinated by the universe and love falling down a rabbit hole whenever something catches my interest.",
+      "Those interests influence how I approach engineering. They've taught me to ask better questions, explain ideas clearly, and think about the people relying on a system. I'm always curious, always learning, and always looking for the next problem worth solving.",
+      "If you're into data, AI, or just want to talk about the universe over coffee, I'd love to connect!"
     ]
   },
   "work": {
@@ -103,7 +106,7 @@
       "institution": "Covenant University",
       "qualification": "B.Sc. Computer Science",
       "status": "2026 · First Class Honours",
-      "description": "Computer Science gave me the foundation to explore databases, software, algorithms, and how systems work. I continue to develop my data engineering skills through applied learning."
+      "description": "Technology has always fascinated me. Studying Computer Science gave me the foundation to explore how software, systems, and the technologies behind them work. I continue to develop my Data Engineering skills through practical learning and hands-on projects."
     }
   ],
   "footer": {

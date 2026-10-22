@@ -37,6 +37,14 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn('Thrift by Parrots',html)
         self.assertIn('Rhodium Solicitors and Advocates',html)
 
+    def test_about_education_and_new_portrait(self):
+        html=(ROOT/'dist'/'index.html').read_text(encoding='utf-8')
+        self.assertIn('src="/assets/portrait.webp"', html)
+        self.assertTrue((ROOT/'dist'/'assets'/'portrait.webp').exists())
+        self.assertIn('Curious about data, systems', self.data['about']['heading'])
+        self.assertIn('Technology has always fascinated me', html)
+        self.assertIn('over coffee', html)
+
     def test_no_unpublished_project_page(self):
         for p in self.data['projects']:
             if not p['published']:

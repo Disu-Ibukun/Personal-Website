@@ -105,7 +105,7 @@ def render_hero(data):
     i, h = data['identity'], data['hero']
     portrait = safe_path(i.get('portrait_file', ''))
     if portrait:
-        picture = f'<img src="/{e(portrait)}" alt="Professional portrait of {e(i["full_name"])}" width="640" height="800" decoding="async" fetchpriority="high">'
+        picture = f'<img src="/{e(portrait)}" alt="Professional portrait of {e(i["full_name"])}" width="360" height="480" decoding="async" fetchpriority="high">'
         picture_class = ' has-photo'
     else:
         picture = '''<div class="photo-no-image" aria-label="Reserved space for a future professional photograph">
