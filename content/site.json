@@ -1,0 +1,117 @@
+{
+  "identity": {
+    "full_name": "Disu Ibukunluwa Raheemat",
+    "short_name": "Disu Ibukunluwa",
+    "initials": "DIR",
+    "role": "Emerging Data Engineer",
+    "location": "Nigeria",
+    "email": "",
+    "linkedin": "",
+    "github": "",
+    "cv_file": "",
+    "portrait_file": "",
+    "site_url": "",
+    "availability": "Open to early-career Data Engineering conversations"
+  },
+  "hero": {
+    "eyebrow": "A portfolio of technical curiosity and practical experience",
+    "headline": "The work behind useful data.",
+    "lead": "I'm an emerging Data Engineer drawn to the systems that turn scattered information into something people can trust, understand, and use.",
+    "secondary": "I bring a Computer Science background, experience in a cryptocurrency fintech, and a perspective shaped by leadership, operations, and entrepreneurship."
+  },
+  "about": {
+    "eyebrow": "The thinking behind the work",
+    "heading": "I care about what data tells us. I'm just as interested in what makes it usable.",
+    "paragraphs": [
+      "Data can help us understand what happened, see what is happening, and notice patterns that might inform what happens next. That range of possibilities is what first made me curious about it.",
+      "But data doesn't become valuable simply by existing. It has to be collected, organised, processed, stored, and made accessible. I'm drawn to Data Engineering because that work sits between information and the decisions people need to make.",
+      "Outside technical work, I enjoy public speaking, debate, and bringing people together to make ideas happen. These aren't separate from how I approach engineering; they've taught me to ask better questions, communicate clearly, and think about the people relying on a system."
+    ]
+  },
+  "work": {
+    "heading": "Where ideas meet real systems.",
+    "company": "Quidax",
+    "company_url": "https://www.quidax.io/",
+    "role": "Data Intern",
+    "dates": "March – September 2026",
+    "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations.",
+    "note": "Specific responsibilities, tools, and project outcomes will be added after review."
+  },
+  "projects_intro": "I want my technical work to show the decisions behind a build, not just a list of tools. Case studies will be published as the details are ready.",
+  "projects": [
+    {
+      "slug": "cryptocurrency-price-data-pipeline",
+      "title": "Cryptocurrency price data pipeline",
+      "category": "Data Engineering / Project",
+      "year": "Project write-up forthcoming",
+      "summary": "A cryptocurrency price data pipeline I have worked on. I'm documenting the architecture, technical choices, and lessons before publishing a full case study.",
+      "published": false,
+      "stack": [],
+      "challenge": "",
+      "approach": [],
+      "architecture": "",
+      "decisions": [],
+      "quality": "",
+      "outcomes": "",
+      "lessons": "",
+      "github_url": "",
+      "image_file": ""
+    }
+  ],
+  "leadership": [
+    {
+      "organisation": "Covenant University Literary and Debating Society",
+      "roles": "General Secretary · 200 Level  /  Vice President of Debates · Final Year",
+      "description": "Debate and public speaking sharpened my ability to build arguments, listen carefully, and make complex ideas clear. Holding leadership roles also made communication and coordination part of the work."
+    },
+    {
+      "organisation": "Millennium Fellowship",
+      "roles": "Campus Director · 300 Level",
+      "description": "A student leadership role within the Millennium Fellowship, a programme presented by the Millennium Campus Network and United Nations Academic Impact to advance social impact and the UN goals.",
+      "organisation_url": "https://www.millenniumfellows.org/"
+    },
+    {
+      "organisation": "College of Science and Technology College Week",
+      "roles": "Chairperson · Final Year",
+      "description": "An opportunity to take responsibility for a student-led college initiative and gain experience in organisation and coordination."
+    },
+    {
+      "organisation": "Covenant University Convocation Planning Committee",
+      "roles": "Head of Logistics · Final Year",
+      "description": "A role focused on the operational side of making complex activities work: planning, coordination, and attention to practical details."
+    }
+  ],
+  "businesses": [
+    {
+      "name": "Thrift by Parrots",
+      "subtitle": "Fashion accessories · E-commerce",
+      "role": "Operations and logistics",
+      "description": "An Instagram-based business selling fashion accessories. Working on operations and logistics gave me firsthand experience of the practical work behind a customer-facing business.",
+      "footnote": "Business context: its Instagram community reached approximately 20,000 followers at its peak and later rebuilt to approximately 5,000 after losing its original page. These are business figures, not claims of my individual contribution."
+    },
+    {
+      "name": "BookCart.ng",
+      "subtitle": "Thrift books · E-commerce",
+      "role": "Co-founder",
+      "description": "I co-founded an online bookstore selling pre-loved books, primarily fiction. Managing logistics and operations has kept me close to questions of inventory, customer experience, process, and sustainable decisions.",
+      "footnote": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "Covenant University",
+      "qualification": "B.Sc. Computer Science",
+      "status": "2026 · First Class Honours",
+      "description": "A foundation in Computer Science that I'm building on through applied technical work and further learning."
+    },
+    {
+      "institution": "Core Data Engineers",
+      "qualification": "Data Engineering Bootcamp",
+      "status": "In progress",
+      "description": "Continuing to develop my understanding of the fundamentals and practice of Data Engineering."
+    }
+  ],
+  "footer": {
+    "note": "Curiosity, systems, and the people they serve."
+  }
+}
