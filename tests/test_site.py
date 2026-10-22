@@ -33,7 +33,7 @@ class SiteTests(unittest.TestCase):
         self.assertIn('mailto:disuibukun00@gmail.com',html)
         self.assertIn('tel:+2347061027312',html)
         self.assertNotIn('Download CV',html)
-        self.assertNotIn('<a class="project-open"',html)
+        self.assertIn('<a class="project-open"',html)
         self.assertNotIn('Thrift by Parrots',html)
         self.assertIn('Rhodium Solicitors and Advocates',html)
 
@@ -52,7 +52,7 @@ class SiteTests(unittest.TestCase):
 
     def test_project_publishing_guard(self):
         data=deepcopy(self.data)
-        data['projects'][0]['published']=True
+        data['projects'][0].update(published=True, outcomes='')
         with self.assertRaisesRegex(ValueError,'Cannot publish'):
             build.validate(data)
 
@@ -72,6 +72,18 @@ class SiteTests(unittest.TestCase):
                 self.assertTrue(project_page.exists())
                 self.assertIn('Trade-off', project_page.read_text(encoding='utf-8'))
                 self.assertIn('/projects/'+p['slug']+'/',(output/'index.html').read_text(encoding='utf-8'))
+
+    def test_requested_content_updates(self):
+        html = (ROOT/'dist'/'index.html').read_text(encoding='utf-8')
+        self.assertIn('>Experience<small>Data engineering', html)
+        self.assertNotIn('Experience at Quidax', html)
+        self.assertIn('Computer Systems Engineering', html)
+        self.assertIn('Rhodium Solicitors and Advocates', html)
+        self.assertIn('Docker', html)
+        detail = (ROOT/'dist'/'projects'/'cryptocurrency-price-data-pipeline'/'index.html').read_text(encoding='utf-8')
+        for term in ('CoinMarketCap', 'PostgreSQL', 'GitHub Actions', '0 0 1 * *',
+                     'CSV', 'crypto_dag'):
+            self.assertIn(term, detail)
 
     def test_escaped_user_content(self):
         data=deepcopy(self.data)

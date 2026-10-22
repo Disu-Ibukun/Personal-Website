@@ -130,7 +130,7 @@ def render_hero(data):
       </div>
       <div class="facts" aria-label="Professional highlights">
         <div class="fact"><span class="fact-no">01</span><p>Computer Science graduate<small>First Class Honours · 2026</small></p></div>
-        <div class="fact"><span class="fact-no">02</span><p>Experience at Quidax<small>Data internship · Fintech</small></p></div>
+        <div class="fact"><span class="fact-no">02</span><p>Experience<small>Data engineering · IT · Fintech</small></p></div>
         <div class="fact"><span class="fact-no">03</span><p>Beyond engineering<small>Leadership · Operations · Business</small></p></div>
       </div>
     </section>'''
