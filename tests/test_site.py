@@ -30,10 +30,12 @@ class SiteTests(unittest.TestCase):
     def test_no_fake_links_or_unprovided_cv(self):
         html=(ROOT/'dist'/'index.html').read_text(encoding='utf-8')
         self.assertNotIn('href=""',html)
-        self.assertNotIn('mailto:',html)
+        self.assertIn('mailto:disuibukun00@gmail.com',html)
+        self.assertIn('tel:+2347061027312',html)
         self.assertNotIn('Download CV',html)
         self.assertNotIn('<a class="project-open"',html)
-        self.assertIn('Contact details will be added',html)
+        self.assertNotIn('Thrift by Parrots',html)
+        self.assertIn('Rhodium Solicitors and Advocates',html)
 
     def test_no_unpublished_project_page(self):
         for p in self.data['projects']:

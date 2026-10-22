@@ -115,7 +115,7 @@ def render_hero(data):
     title = e(h['headline']).replace('Ibukunoluwa.', '<em>Ibukunoluwa.</em>', 1)
     return f'''<section class="hero site-shell" aria-labelledby="hero-title">
       <div class="topline"><span>Disu Ibukunoluwa Raheemat / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
-      <div class="hero-layout">
+      <div class="hero-layout{' no-portrait' if not portrait else ''}">
         <div class="hero-copy"><div class="eyebrow">{e(i['role'])}</div>
           <h1 class="hero-title" id="hero-title">{title}</h1>
           <p class="hero-lead">{e(h['lead'])}</p>
@@ -258,7 +258,10 @@ def render_education(data):
 def render_contact(data):
     i = data['identity']; links=[]
     if i.get('email') and re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', i['email']):
-        links.append(content_link('Email me', 'mailto:' + i['email']))
+        links.append(content_link(i['email'], 'mailto:' + i['email']))
+    phone = i.get('phone', '')
+    if re.fullmatch(r'\+?[0-9]{8,15}', phone):
+        links.append(content_link('Call ' + phone, 'tel:' + phone, secondary=True))
     if valid_url(i.get('linkedin', '')):
         links.append(content_link('LinkedIn', i['linkedin'], secondary=True, external=True))
     if valid_url(i.get('github', '')):

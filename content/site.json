@@ -5,13 +5,14 @@
     "initials": "DIR",
     "role": "Emerging Data Engineer",
     "location": "Nigeria",
-    "email": "",
+    "email": "disuibukun00@gmail.com",
     "linkedin": "https://www.linkedin.com/in/ibukunoluwa-disu/",
-    "github": "",
+    "github": "https://github.com/Disu-Ibukun",
     "cv_file": "",
-    "portrait_file": "assets/portrait.webp",
+    "portrait_file": "",
     "site_url": "",
-    "availability": "Open to early-career Data Engineering conversations"
+    "availability": "Open to early-career Data Engineering conversations",
+    "phone": "+2347061027312"
   },
   "hero": {
     "eyebrow": "Data engineering · Systems · People",
@@ -33,7 +34,7 @@
     "company": "Quidax",
     "company_url": "https://www.quidax.io/",
     "role": "Data Intern",
-    "dates": "March – September 2026",
+    "dates": "March – September 2025",
     "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations.",
     "note": "Specific responsibilities, tools, and project outcomes will be added after review."
   },
@@ -83,17 +84,17 @@
   ],
   "businesses": [
     {
-      "name": "Thrift by Parrots",
+      "name": "thriftbycaret",
       "subtitle": "Fashion accessories · E-commerce",
       "role": "Operations and logistics",
-      "description": "An Instagram-based business selling fashion accessories. Working on operations and logistics gave me firsthand experience of the practical work behind a customer-facing business.",
-      "footnote": "Business context: its Instagram community reached approximately 20,000 followers at its peak and later rebuilt to approximately 5,000 after losing its original page. These are business figures, not claims of my individual contribution."
+      "description": "I worked on operations and logistics and helped grow thriftbycaret into a sustainable business. It taught me how much consistency, customer experience, and sound operational decisions matter.",
+      "footnote": ""
     },
     {
       "name": "BookCart.ng",
       "subtitle": "Thrift books · E-commerce",
       "role": "Co-founder",
-      "description": "I co-founded an online bookstore selling pre-loved books, primarily fiction. Managing logistics and operations has kept me close to questions of inventory, customer experience, process, and sustainable decisions.",
+      "description": "I co-founded BookCart.ng, an online bookstore selling pre-loved books. In one year, I helped move the business from a loss in its first year to a profit in its second year, while working across inventory, operations, and logistics.",
       "footnote": ""
     }
   ],
@@ -110,46 +111,86 @@
   },
   "experience": [
     {
-      "company": "Quidax",
-      "role": "Data Intern",
-      "dates": "March – September 2026",
-      "company_url": "https://www.quidax.io/",
-      "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations."
-    },
-    {
       "company": "Core Data Engineers",
       "role": "Data Engineer Trainee",
       "dates": "August – October 2026",
       "company_url": "",
-      "description": "Structured training in data engineering, with a focus on strengthening fundamentals and developing practical skills."
+      "description": "Data engineering training focused on strengthening foundational concepts and applying them through practical exercises."
+    },
+    {
+      "company": "Rhodium Solicitors and Advocates",
+      "role": "IT Intern",
+      "dates": "January – May 2026",
+      "company_url": "",
+      "description": "Completed an IT internship in a legal-services environment. Details of specific responsibilities and projects can be added as they are documented."
+    },
+    {
+      "company": "Quidax",
+      "role": "Data Intern",
+      "dates": "March – September 2025",
+      "company_url": "https://www.quidax.io/",
+      "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations."
     }
   ],
   "skills": {
     "heading": "Skills & tools",
-    "intro": "Technologies and concepts I am learning, practising, and building on. This is a snapshot of my development—not a claim of expertise in every tool.",
+    "intro": "My toolkit spans programming, data analysis, databases, cloud platforms, and development workflows. Proficiency levels are indicated where relevant.",
     "groups": [
       {
-        "label": "Programming & querying",
+        "label": "Python · Advanced",
         "items": [
-          "Python",
-          "SQL"
+          "Machine learning",
+          "Pandas",
+          "NumPy",
+          "Scikit-learn",
+          "Matplotlib",
+          "Data analysis & visualisation"
         ]
       },
       {
-        "label": "Data engineering foundations",
+        "label": "Databases & data modelling",
         "items": [
-          "Data pipelines",
-          "Data modelling",
-          "Data transformation"
+          "PostgreSQL",
+          "MySQL",
+          "dbt",
+          "Data cleaning",
+          "SQL querying, joins & aggregation"
         ]
       },
       {
-        "label": "Developer tools & workflow",
+        "label": "Cloud · Beginner",
         "items": [
-          "Git & GitHub",
-          "Linux",
+          "Amazon Web Services (AWS)",
+          "Google Cloud Platform (GCP)"
+        ]
+      },
+      {
+        "label": "Excel",
+        "items": [
+          "Dashboards",
+          "Data visualisation",
+          "Statistical testing"
+        ]
+      },
+      {
+        "label": "Bash & Linux · Beginner",
+        "items": [
+          "Shell scripting",
+          "Automation"
+        ]
+      },
+      {
+        "label": "Containerisation & data pipelines",
+        "items": [
           "Docker",
-          "dbt"
+          "ETL / ELT"
+        ]
+      },
+      {
+        "label": "Version control & CI/CD · Intermediate",
+        "items": [
+          "GitHub",
+          "Version-control workflows"
         ]
       }
     ]
