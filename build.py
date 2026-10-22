@@ -55,16 +55,16 @@ def header(home=True):
     prefix = '' if home else '/'
     return f'''<header class="site-header" id="top">
       <div class="site-shell header-inner">
-        <a class="wordmark" href="{prefix}#top" aria-label="Disu Ibukunluwa Raheemat — Home">
+        <a class="wordmark" href="{prefix}#top" aria-label="Disu Ibukunoluwa Raheemat — Home">
           <span class="monogram" aria-hidden="true">D.</span>
-          <span class="brand-name">Disu Ibukunluwa<span class="brand-role">Emerging Data Engineer</span></span>
+          <span class="brand-name">Disu Ibukunoluwa<span class="brand-role">Emerging Data Engineer</span></span>
         </a>
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
         <nav id="main-navigation" class="nav-links" aria-label="Primary navigation" data-nav-menu>
           <a href="{prefix}#about">About</a><a href="{prefix}#experience">Experience</a>
-          <a href="{prefix}#projects">Projects</a><a href="{prefix}#beyond">Beyond code</a>
+          <a href="{prefix}#education">Education</a><a href="{prefix}#skills">Skills</a><a href="{prefix}#projects">Projects</a><a href="{prefix}#beyond">Leadership</a>
           <a class="nav-contact" href="{prefix}#contact">Get in touch ↗</a>
         </nav>
       </div>
@@ -112,9 +112,9 @@ def render_hero(data):
             <span class="placeholder-glyph" aria-hidden="true">D.</span>
             <span class="placeholder-text">Portrait to be added</span></div>'''
         picture_class = ''
-    title = e(h['headline']).replace('useful', '<em>useful</em>', 1)
+    title = e(h['headline']).replace('Ibukunoluwa.', '<em>Ibukunoluwa.</em>', 1)
     return f'''<section class="hero site-shell" aria-labelledby="hero-title">
-      <div class="topline"><span>Disu Ibukunluwa Raheemat / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
+      <div class="topline"><span>Disu Ibukunoluwa Raheemat / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
       <div class="hero-layout">
         <div class="hero-copy"><div class="eyebrow">{e(i['role'])}</div>
           <h1 class="hero-title" id="hero-title">{title}</h1>
@@ -144,29 +144,42 @@ def render_about(data):
     midpoint = (len(ps) + 1) // 2
     return f'''<section id="about" class="section section-divider"><div class="site-shell section-grid">
       {section_index('01', 'A little about me')}
-      <div data-reveal><h2 class="section-heading">{about_heading}</h2>
+      <div data-reveal><h2 class="section-heading">About me</h2>
         <div class="section-prose"><div class="left-column">{''.join(ps[:midpoint])}</div>
-        <div class="right-column">{''.join(ps[midpoint:])}<div class="section-outro">Curiosity is the starting point.</div></div></div>
+        <div class="right-column">{''.join(ps[midpoint:])}</div></div>
       </div>
     </div></section>'''
 
 
 def render_experience(data):
-    w = data['work']
-    work_heading = e(w['heading']).replace('real systems.', '<em>real systems.</em>', 1)
-    org = e(w['company'])
-    company_link = f'<a href="{attr_url(w["company_url"])}" target="_blank" rel="noopener noreferrer">{org}</a>' if valid_url(w.get('company_url', '')) else org
+    rows = []
+    for w in data['experience']:
+        url = w.get('company_url', '')
+        company = (f'<a href="{attr_url(url)}" target="_blank" rel="noopener noreferrer">{e(w["company"])}</a>'
+                   if valid_url(url) else e(w['company']))
+        rows.append(f'''<article class="experience-row">
+          <span class="work-dates">{e(w['dates'])}</span>
+          <div><h3 class="work-title">{company}</h3><p class="experience-role">{e(w['role'])}</p>
+          <p class="work-description">{e(w['description'])}</p></div>
+        </article>''')
     return f'''<section class="section ink-panel" id="experience"><div class="site-shell section-grid">
-        {section_index('02', 'Experience')}
-        <div data-reveal><div class="eyebrow">Professional experience</div>
-          <h2 class="section-heading">{work_heading}</h2>
-          <div class="work-feature"><div class="work-dates">{e(w['dates'])}</div>
-            <div><h3 class="work-title">{org}<span class="role">{e(w['role'])}</span></h3>
-              <p class="work-description">{e(w['description'])}</p>
-              <a class="work-link" href="{attr_url(w['company_url'])}" target="_blank" rel="noopener noreferrer">Explore Quidax {icon_arrow()}</a>
-            </div>
-          </div>
-        </div>
+      {section_index('03', 'Experience')}
+      <div data-reveal><h2 class="section-heading">Experience</h2>
+      <div class="experience-list">{''.join(rows)}</div></div>
+    </div></section>'''
+
+
+def render_skills(data):
+    sk = data['skills']
+    rows = []
+    for group in sk['groups']:
+        rows.append(f'''<div class="skill-row"><h3>{e(group['label'])}</h3>
+          <ul>{''.join(f'<li>{e(item)}</li>' for item in group['items'])}</ul></div>''')
+    return f'''<section id="skills" class="section section-divider"><div class="site-shell section-grid">
+      {section_index('04', 'Skills')}
+      <div data-reveal><h2 class="section-heading">{e(sk['heading'])}</h2>
+      <p class="skills-intro">{e(sk['intro'])}</p>
+      <div class="skills-list">{''.join(rows)}</div></div>
     </div></section>'''
 
 
@@ -182,9 +195,9 @@ def render_projects(data):
           <div class="project-side"><span class="project-category">{e(p['category'])}</span>{side}</div>
         </article>''')
     return f'''<section id="projects" class="section"><div class="site-shell section-grid">
-      {section_index('03', 'Selected work')}
+      {section_index('05', 'Projects')}
       <div data-reveal><div class="eyebrow">Technical projects</div>
-        <h2 class="section-heading">Built to be examined, <em>not just admired.</em></h2>
+        <h2 class="section-heading">Projects</h2>
         <p class="projects-lead">{e(data['projects_intro'])}</p>
         <div class="projects-list">{''.join(cards)}</div>
       </div>
@@ -200,9 +213,9 @@ def render_leadership(data):
         rows.append(f'''<article class="leadership-item"><div><h3>{title}</h3>
           <p class="role-tag">{e(item['roles'])}</p></div><p>{e(item['description'])}</p></article>''')
     return f'''<section id="beyond" class="section section-divider"><div class="site-shell section-grid">
-      {section_index('04', 'Beyond the code')}
+      {section_index('07', 'Community')}
       <div data-reveal><div class="eyebrow">Leadership & community</div>
-        <h2 class="section-heading">Engineering needs more than <em>technical answers.</em></h2>
+        <h2 class="section-heading">Leadership &amp; Community</h2>
         <p class="projects-lead">Organising people, making decisions, and explaining ideas well have been important parts of my experience, too.</p>
         <div class="leadership-list">{''.join(rows)}</div>
       </div></div></section>'''
@@ -217,12 +230,12 @@ def render_business(data):
           <p class="description">{e(item['description'])}</p>
           <div class="business-role">{e(item['role'])}</div></article>''')
     return f'''<section class="section section-divider" id="entrepreneurship"><div class="site-shell section-grid">
-      {section_index('05', 'Entrepreneurship')}
+      {section_index('06', 'Entrepreneurship')}
       <div data-reveal><div class="eyebrow">A perspective shaped by practice</div>
-        <h2 class="section-heading">Business has a way of making <em>the details matter.</em></h2>
+        <h2 class="section-heading">Entrepreneurship</h2>
         <p class="projects-lead">Running and supporting online businesses has taught me to think about operations, customers, inventory, and how dependable information supports decisions.</p>
         <div class="split-feature">{''.join(cards)}</div>
-        <p class="mini-insight">Good systems should make life easier for the people relying on them.</p>
+        
       </div>
     </div></section>'''
 
@@ -234,9 +247,9 @@ def render_education(data):
           <h3>{e(item['institution'])}</h3><p class="qualification">{e(item['qualification'])}</p>
           <p class="status">{e(item['status'])}</p><p class="education-description">{e(item['description'])}</p></article>''')
     return f'''<section id="education" class="section education-wrap"><div class="site-shell section-grid">
-      {section_index('06', 'Always learning')}
+      {section_index('02', 'Education')}
       <div data-reveal><div class="eyebrow">Education & development</div>
-        <h2 class="section-heading">A foundation. <em>And plenty still to learn.</em></h2>
+        <h2 class="section-heading">Education &amp; Development</h2>
         <div class="education-list">{''.join(cards)}</div>
       </div>
     </div></section>'''
@@ -257,7 +270,7 @@ def render_contact(data):
     pending_markup = ('<div class="contact-pending">Contact details will be added here once they are ready to share.</div>'
                       if not links else '')
     return f'''<section id="contact" class="contact"><div class="site-shell">
-      <div class="contact-topline"><span>07 / Let’s connect</span><span>New conversations welcome</span></div>
+      <div class="contact-topline"><span>08 / Let’s connect</span><span>New conversations welcome</span></div>
       <h2 class="contact-title">Let's build <em>something useful.</em></h2>
       <p>I'm interested in early-career Data Engineering opportunities, thoughtful products, and conversations with people who care about building reliable systems.</p>
       {links_markup}{pending_markup}
@@ -270,9 +283,9 @@ def render_home(data):
             'with experience across fintech, leadership, and entrepreneurship.')
     return (head(data, i['full_name'] + ' | Data Engineering & Beyond', desc)
             + header() + '<main id="main">'
-            + render_hero(data) + render_about(data) + render_experience(data)
-            + render_projects(data) + render_leadership(data) + render_business(data)
-            + render_education(data) + render_contact(data) + '</main>' + footer(data))
+            + render_hero(data) + render_about(data) + render_education(data)
+            + render_experience(data) + render_skills(data) + render_projects(data)
+            + render_business(data) + render_leadership(data) + render_contact(data) + '</main>' + footer(data))
 
 
 def case_section(heading, body_html):

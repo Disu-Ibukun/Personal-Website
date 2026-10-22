@@ -1,23 +1,23 @@
 {
   "identity": {
-    "full_name": "Disu Ibukunluwa Raheemat",
-    "short_name": "Disu Ibukunluwa",
+    "full_name": "Disu Ibukunoluwa Raheemat",
+    "short_name": "Disu Ibukunoluwa",
     "initials": "DIR",
     "role": "Emerging Data Engineer",
     "location": "Nigeria",
     "email": "",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/in/ibukunoluwa-disu/",
     "github": "",
     "cv_file": "",
-    "portrait_file": "",
+    "portrait_file": "assets/portrait.webp",
     "site_url": "",
     "availability": "Open to early-career Data Engineering conversations"
   },
   "hero": {
-    "eyebrow": "A portfolio of technical curiosity and practical experience",
-    "headline": "The work behind useful data.",
-    "lead": "I'm an emerging Data Engineer drawn to the systems that turn scattered information into something people can trust, understand, and use.",
-    "secondary": "I bring a Computer Science background, experience in a cryptocurrency fintech, and a perspective shaped by leadership, operations, and entrepreneurship."
+    "eyebrow": "Data engineering · Systems · People",
+    "headline": "Hi, I'm Ibukunoluwa.",
+    "lead": "I'm an emerging Data Engineer interested in how good data systems help people make better decisions.",
+    "secondary": "I studied Computer Science, completed an internship at Quidax, and have experience in entrepreneurship, debate, and leadership."
   },
   "about": {
     "eyebrow": "The thinking behind the work",
@@ -102,16 +102,56 @@
       "institution": "Covenant University",
       "qualification": "B.Sc. Computer Science",
       "status": "2026 · First Class Honours",
-      "description": "A foundation in Computer Science that I'm building on through applied technical work and further learning."
-    },
-    {
-      "institution": "Core Data Engineers",
-      "qualification": "Data Engineering Bootcamp",
-      "status": "In progress",
-      "description": "Continuing to develop my understanding of the fundamentals and practice of Data Engineering."
+      "description": "Computer Science gave me the foundation to explore databases, software, algorithms, and how systems work. I continue to develop my data engineering skills through applied learning."
     }
   ],
   "footer": {
     "note": "Curiosity, systems, and the people they serve."
+  },
+  "experience": [
+    {
+      "company": "Quidax",
+      "role": "Data Intern",
+      "dates": "March – September 2026",
+      "company_url": "https://www.quidax.io/",
+      "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations."
+    },
+    {
+      "company": "Core Data Engineers",
+      "role": "Data Engineer Trainee",
+      "dates": "August – October 2026",
+      "company_url": "",
+      "description": "Structured training in data engineering, with a focus on strengthening fundamentals and developing practical skills."
+    }
+  ],
+  "skills": {
+    "heading": "Skills & tools",
+    "intro": "Technologies and concepts I am learning, practising, and building on. This is a snapshot of my development—not a claim of expertise in every tool.",
+    "groups": [
+      {
+        "label": "Programming & querying",
+        "items": [
+          "Python",
+          "SQL"
+        ]
+      },
+      {
+        "label": "Data engineering foundations",
+        "items": [
+          "Data pipelines",
+          "Data modelling",
+          "Data transformation"
+        ]
+      },
+      {
+        "label": "Developer tools & workflow",
+        "items": [
+          "Git & GitHub",
+          "Linux",
+          "Docker",
+          "dbt"
+        ]
+      }
+    ]
   }
 }
