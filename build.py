@@ -63,8 +63,8 @@ def header(home=True):
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
         <nav id="main-navigation" class="nav-links" aria-label="Primary navigation" data-nav-menu>
-          <a href="{prefix}#about">About</a><a href="{prefix}#experience">Experience</a>
-          <a href="{prefix}#education">Education</a><a href="{prefix}#skills">Skills</a><a href="{prefix}#projects">Projects</a><a href="{prefix}#beyond">Leadership</a>
+          <a href="{prefix}#about">About</a><a href="{prefix}#education">Education</a>
+          <a href="{prefix}#experience">Experience</a><a href="{prefix}#skills">Skills</a><a href="{prefix}#projects">Projects</a><a href="{prefix}#beyond">Leadership</a>
           <a class="nav-contact" href="{prefix}#contact">Get in touch ↗</a>
         </nav>
       </div>
@@ -271,7 +271,7 @@ def render_contact(data):
                       if not links else '')
     return f'''<section id="contact" class="contact"><div class="site-shell">
       <div class="contact-topline"><span>08 / Let’s connect</span><span>New conversations welcome</span></div>
-      <h2 class="contact-title">Let's build <em>something useful.</em></h2>
+      <h2 class="contact-title">Get in <em>touch.</em></h2>
       <p>I'm interested in early-career Data Engineering opportunities, thoughtful products, and conversations with people who care about building reliable systems.</p>
       {links_markup}{pending_markup}
     </div></section>'''
