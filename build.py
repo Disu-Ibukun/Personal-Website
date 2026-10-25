@@ -55,7 +55,7 @@ def header(home=True):
     prefix = '' if home else '/'
     return f'''<header class="site-header" id="top">
       <div class="site-shell header-inner">
-        <a class="wordmark" href="{prefix}#top" aria-label="Disu Ibukunoluwa Raheemat — Home">
+        <a class="wordmark" href="{prefix}#top" aria-label="Disu Ibukunoluwa — Home">
           <span class="monogram" aria-hidden="true">D.</span>
           <span class="brand-name">Disu Ibukunoluwa<span class="brand-role">Emerging Data Engineer</span></span>
         </a>
@@ -114,7 +114,7 @@ def render_hero(data):
         picture_class = ''
     title = e(h['headline']).replace('Ibukunoluwa.', '<em>Ibukunoluwa.</em>', 1)
     return f'''<section class="hero site-shell" aria-labelledby="hero-title">
-      <div class="topline"><span>Disu Ibukunoluwa Raheemat / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
+      <div class="topline"><span>Disu Ibukunoluwa / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
       <div class="hero-layout{' no-portrait' if not portrait else ''}">
         <div class="hero-copy"><div class="eyebrow">{e(i['role'])}</div>
           <h1 class="hero-title" id="hero-title">{title}</h1>
@@ -164,7 +164,7 @@ def render_experience(data):
         </article>''')
     return f'''<section class="section ink-panel" id="experience"><div class="site-shell section-grid">
       {section_index('03', 'Experience')}
-      <div data-reveal><h2 class="section-heading">Experience</h2>
+      <div data-reveal><h2 class="section-heading">Experience<span class="period">.</span></h2>
       <div class="experience-list">{''.join(rows)}</div></div>
     </div></section>'''
 
@@ -177,7 +177,7 @@ def render_skills(data):
           <ul>{''.join(f'<li>{e(item)}</li>' for item in group['items'])}</ul></div>''')
     return f'''<section id="skills" class="section section-divider"><div class="site-shell section-grid">
       {section_index('04', 'Skills')}
-      <div data-reveal><h2 class="section-heading">{e(sk['heading'])}</h2>
+      <div data-reveal><h2 class="section-heading">{e(sk['heading'])}<span class="period">.</span></h2>
       <p class="skills-intro">{e(sk['intro'])}</p>
       <div class="skills-list">{''.join(rows)}</div></div>
     </div></section>'''

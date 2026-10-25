@@ -1,24 +1,24 @@
 {
   "identity": {
-    "full_name": "Disu Ibukunoluwa Raheemat",
+    "full_name": "Disu Ibukunoluwa",
     "short_name": "Disu Ibukunoluwa",
-    "initials": "DIR",
+    "initials": "DI",
     "role": "Emerging Data Engineer",
-    "location": "Nigeria",
+    "location": "Lagos, Nigeria",
     "email": "disuibukun00@gmail.com",
     "linkedin": "https://www.linkedin.com/in/ibukunoluwa-disu/",
     "github": "https://github.com/Disu-Ibukun",
     "cv_file": "",
     "portrait_file": "assets/portrait.webp",
-    "site_url": "",
+    "site_url": "https://disu-ibukunoluwa.vercel.app",
     "availability": "Open to early-career Data Engineering conversations",
     "phone": "+2347061027312"
   },
   "hero": {
     "eyebrow": "Data engineering · Systems · People",
-    "headline": "Hi, I'm Ibukunoluwa.",
-    "lead": "I'm an emerging Data Engineer interested in how good data systems help people make better decisions.",
-    "secondary": "I studied Computer Science, completed an internship at Quidax, and have experience in entrepreneurship, debate, and leadership."
+    "headline": "Hello, I'm Ibukunoluwa.",
+    "lead": "I build and explore the systems that turn raw data into reliable, useful information.",
+    "secondary": "First Class Computer Science graduate, emerging Data Engineer, and curious problem-solver with experience in fintech, operations and community leadership."
   },
   "about": {
     "eyebrow": "A little more about me",
@@ -41,14 +41,14 @@
     "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations.",
     "note": "Specific responsibilities, tools, and project outcomes will be added after review."
   },
-  "projects_intro": "A selection of practical projects showing how I approach data ingestion, transformation, reliability, and deployment. Explore the implementation details and engineering decisions behind each build.",
+  "projects_intro": "Practical work in data extraction, transformation, orchestration and reliability—with the decisions behind each pipeline documented.",
   "projects": [
     {
       "slug": "cryptocurrency-price-data-pipeline",
       "title": "Bitcoin price ETL pipeline",
-      "category": "Data Engineering / ETL Automation",
+      "category": "Data engineering / ETL automation",
       "year": "2024",
-      "summary": "An Apache Airflow ETL pipeline that collects Bitcoin prices in USD from the CoinMarketCap API, transforms them with Pandas, and loads them into PostgreSQL. If the database load fails, a timestamped CSV preserves the transformed data.",
+      "summary": "A scheduled ETL pipeline that collects Bitcoin quotes from the CoinMarketCap API, cleans and transforms them using Pandas, and loads them into PostgreSQL—with a timestamped CSV fallback if the database write fails.",
       "published": true,
       "stack": [
         "Python",
@@ -59,31 +59,31 @@
         "GitHub Actions",
         "Ubuntu"
       ],
-      "challenge": "Collect and standardise Bitcoin price data on a repeatable schedule for downstream analysis and reporting, while retaining the transformed output if PostgreSQL is unavailable during a load.",
+      "challenge": "Collect, process and store Bitcoin market data on a consistent monthly schedule for historical market analysis and reporting.",
       "approach": [
-        "Extract: Call CoinMarketCap's /v2/cryptocurrency/quotes/latest endpoint using an authenticated API request, with slug=bitcoin and convert=USD.",
-        "Transform: Use Pandas to normalise the JSON response into a DataFrame; remove unnecessary columns, rename fields, convert numeric values, and parse timestamps as datetimes.",
-        "Load: Write the transformed data to PostgreSQL. If the database load raises an exception, write a CSV file with a timestamped filename.",
-        "Orchestrate and deploy: Define extract_data_task, transform_data_task, and load_data_task in the crypto_dag Airflow DAG, and use GitHub Actions to deploy the workflow to an Ubuntu Airflow server."
+        "Extract Bitcoin quotes in USD from the CoinMarketCap API using an authenticated request.",
+        "Normalise and clean the returned JSON using Pandas, including numeric and datetime conversion.",
+        "Load structured records into PostgreSQL, writing the processed data to a timestamped CSV when the database load fails.",
+        "Orchestrate extract_data_task, transform_data_task and load_data_task in Apache Airflow and deploy using GitHub Actions."
       ],
-      "architecture": "CoinMarketCap API (Bitcoin quotes in USD) → Airflow extraction → Pandas transformation → PostgreSQL, with a timestamped CSV fallback when the database load fails. The DAG is named crypto_dag, uses the monthly schedule 0 0 1 * * (first day of each month), and has a configured start date of 21 June 2024. GitHub Actions automates deployment to the Ubuntu server.",
+      "architecture": "CoinMarketCap API → Airflow extraction → Pandas transformation → PostgreSQL (fallback: timestamped CSV). DAG: crypto_dag. Cron schedule: 0 0 1 * * (first day of each month). Configured start date: June 21, 2024.",
       "decisions": [
         {
-          "title": "Separate ETL stages in Airflow",
-          "body": "Extraction, transformation, and loading are separate tasks so each stage has a clear responsibility within the monthly DAG."
+          "title": "Separate the ETL stages",
+          "body": "Explicit extraction, transformation and loading tasks keep the stages easier to reason about."
         },
         {
-          "title": "Keep a fallback when PostgreSQL fails",
-          "body": "Save the transformed data to a timestamped CSV when the primary database write fails, avoiding the loss of that processed output."
+          "title": "Preserve data during database errors",
+          "body": "A CSV fallback retains the transformed output rather than discarding it after a failed PostgreSQL write."
         },
         {
-          "title": "Automate server deployment",
-          "body": "Use a GitHub Actions workflow to deploy changes to the Ubuntu-hosted Airflow environment."
+          "title": "Automate deployment",
+          "body": "GitHub Actions deploys the Airflow workflow to an Ubuntu server."
         }
       ],
-      "quality": "The load step handles PostgreSQL errors by preserving the transformed dataset in a timestamped CSV. This is a data-retention fallback rather than an automatic database replay mechanism.",
-      "outcomes": "Built a scheduled Bitcoin data ingestion and transformation workflow with PostgreSQL storage, failure fallback to CSV, and GitHub Actions deployment to an Ubuntu Airflow server. Its output can support cryptocurrency price analysis and reporting.",
-      "lessons": "Reliable ETL design includes more than a schedule: consistent data types, clear task boundaries, repeatable transformations, and a fallback for failures at the destination all matter.",
+      "quality": "A timestamped CSV fallback protects transformed records when loading to PostgreSQL fails; it does not automatically retry database ingestion.",
+      "outcomes": "A monthly Bitcoin market data pipeline with scheduled ingestion, PostgreSQL storage, CSV fallback, and a GitHub Actions deployment workflow.",
+      "lessons": "Orchestration, consistent transformation and explicit handling of downstream failures are all part of reliable data engineering.",
       "github_url": "",
       "image_file": ""
     }
@@ -133,6 +133,12 @@
       "qualification": "B.Sc. Computer Science",
       "status": "2026 · First Class Honours",
       "description": "Technology has always fascinated me. Studying Computer Science gave me the foundation to explore how software, systems, and the technologies behind them work. I continue to develop my Data Engineering skills through practical learning and hands-on projects. Relevant coursework included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
+    },
+    {
+      "institution": "ClickHouse",
+      "qualification": "Certified Developer",
+      "status": "Professional certification",
+      "description": "ClickHouse Certified Developer."
     }
   ],
   "footer": {
@@ -144,14 +150,14 @@
       "role": "Data Engineer Trainee",
       "dates": "August – October 2026",
       "company_url": "",
-      "description": "Implemented data orchestration workflows using AWS cloud infrastructure and Docker to create scalable, reproducible data engineering environments. Designed modular data models and transformation pipelines with dbt to support maintainability, collaboration, and data reliability. Documented data operations procedures and system configurations to support knowledge transfer and operational continuity."
+      "description": "Implemented data orchestration workflows using AWS and Docker to create reproducible development environments. Built modular dbt models and transformation pipelines, and documented configuration and operating procedures for knowledge sharing and maintenance."
     },
     {
       "company": "Rhodium Solicitors and Advocates",
       "role": "IT Intern",
       "dates": "January – May 2026",
       "company_url": "",
-      "description": "Supported digital document management and filing systems, database management and maintenance, data analysis, and report preparation in a legal-services environment. Maintained IT documentation to support accurate records and efficient day-to-day operations."
+      "description": "Supported document management and digital filing, database maintenance, data analysis and reporting, and IT documentation in a legal-services environment."
     },
     {
       "company": "Quidax",
