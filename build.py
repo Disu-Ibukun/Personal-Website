@@ -63,8 +63,8 @@ def header(home=True):
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
         <nav id="main-navigation" class="nav-links" aria-label="Primary navigation" data-nav-menu>
-          <a href="{prefix}#about">About</a><a href="{prefix}#education">Education</a>
-          <a href="{prefix}#experience">Experience</a><a href="{prefix}#skills">Skills</a><a href="{prefix}#projects">Projects</a><a href="{prefix}#beyond">Leadership</a>
+          <a href="{prefix}#about">About</a><a href="{prefix}#skills">Skills</a>
+          <a href="{prefix}#projects">Projects</a><a href="{prefix}#experience">Experience</a><a href="{prefix}#beyond">Leadership</a>
           <a class="nav-contact" href="{prefix}#contact">Get in touch ↗</a>
         </nav>
       </div>
@@ -121,7 +121,7 @@ def render_hero(data):
           <p class="hero-lead">{e(h['lead'])}</p>
           <p class="hero-secondary">{e(h['secondary'])}</p>
           <div class="action-row"><a href="#projects" class="link-strong">Explore my work {icon_arrow()}</a>
-          <a href="#about" class="link-plain">A little about me <span class="arrow" aria-hidden="true">↗</span></a></div>
+          <a href="#about" class="link-plain">About me <span class="arrow" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="hero-aside"><div class="photo-canvas{picture_class}">{picture}
           <div class="photo-caption"><span>01 / The person</span><span>{e(i['location'])}</span></div>
@@ -190,9 +190,19 @@ def render_projects(data):
         heading = (f'<a href="/projects/{e(p["slug"])}/">{e(p["title"])}</a>' if published else e(p['title']))
         side = (f'<a class="project-open" href="/projects/{e(p["slug"])}/">Read case study ↗</a>' if published
                 else '<span class="status-inline">Case study in preparation</span>')
+        visual = ('<div class="pipeline-visual" aria-label="Pipeline: API extraction to Pandas transformation to PostgreSQL storage">'
+                  '<span class="pipeline-node">API <small>Extract</small></span>'
+                  '<span class="pipeline-connector" aria-hidden="true">→</span>'
+                  '<span class="pipeline-node">Pandas <small>Transform</small></span>'
+                  '<span class="pipeline-connector" aria-hidden="true">→</span>'
+                  '<span class="pipeline-node">PostgreSQL <small>Load</small></span>'
+                  '</div>' if p.get('slug') == 'cryptocurrency-price-data-pipeline' else '')
+        stack = ''.join(f'<span class="project-tool">{e(tool)}</span>' for tool in p.get('stack', [])[:5])
         cards.append(f'''<article class="project-card"><div class="project-num">{num:02d}</div>
-          <div><h3 class="project-title">{heading}</h3><p>{e(p['summary'])}</p></div>
-          <div class="project-side"><span class="project-category">{e(p['category'])}</span>{side}</div>
+          <div class="project-content"><div class="project-eyebrow">{e(p['category'])}</div>
+            <h3 class="project-title">{heading}</h3><p>{e(p['summary'])}</p>
+            <div class="project-toolset">{stack}</div>{side}</div>
+          {visual}
         </article>''')
     return f'''<section id="projects" class="section"><div class="site-shell section-grid">
       {section_index('02', 'Projects')}
@@ -213,7 +223,7 @@ def render_leadership(data):
         rows.append(f'''<article class="leadership-item"><div><h3>{title}</h3>
           <p class="role-tag">{e(item['roles'])}</p></div><p>{e(item['description'])}</p></article>''')
     return f'''<section id="beyond" class="section section-divider"><div class="site-shell section-grid">
-      {section_index('06', 'Community')}
+      {section_index('06', 'Leadership')}
       <div data-reveal><div class="eyebrow">Leadership & community</div>
         <h2 class="section-heading">Leadership &amp; Community</h2>
         <p class="projects-lead">Organising people, making decisions, and explaining ideas well have been important parts of my experience, too.</p>
