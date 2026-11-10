@@ -3,7 +3,7 @@
     "full_name": "Disu Ibukunoluwa",
     "short_name": "Disu Ibukunoluwa",
     "initials": "DI",
-    "role": "Emerging Data Engineer",
+    "role": "Data Engineer",
     "location": "Lagos, Nigeria",
     "email": "disuibukun00@gmail.com",
     "linkedin": "https://www.linkedin.com/in/ibukunoluwa-disu/",
@@ -15,21 +15,18 @@
     "phone": "+2347061027312"
   },
   "hero": {
-    "eyebrow": "Data engineering · Systems · People",
+    "eyebrow": "Data Engineer · Python · SQL · Cloud",
     "headline": "Hello, I'm Ibukunoluwa.",
-    "lead": "I build and explore the systems that turn raw data into reliable, useful information.",
-    "secondary": "First Class Computer Science graduate, emerging Data Engineer, and curious problem-solver with experience in fintech, operations and community leadership."
+    "lead": "I build reliable data pipelines and turn raw data into accessible, analytics-ready datasets.",
+    "secondary": "First-Class Computer Science graduate (4.65/5.0) from Covenant University, with experience in fintech and data engineering."
   },
   "about": {
-    "eyebrow": "A little more about me",
-    "heading": "Curious about data, systems, and everything in between.",
+    "eyebrow": "About me",
+    "heading": "Hello, I'm Disu Ibukunoluwa.",
     "paragraphs": [
-      "My name is Disu Ibukunoluwa. I'm a recent First Class Computer Science graduate from Covenant University and an emerging Data Engineer. I work with SQL, Python, and data visualisation tools, with experience in data modelling, dashboard design, and root-cause analysis that supports informed decision-making.",
-      "I became interested in data because it can help us understand what happened, see what is happening now, and spot patterns that might shape what happens next. That range of possibilities is what first sparked my curiosity.",
-      "But data doesn't become useful just because it exists. It has to be collected, organised, processed, stored, and made accessible. That's what draws me to Data Engineering: building the systems that connect information to the decisions people need to make.",
-      "When I'm not writing SQL or debugging code, I enjoy public speaking, debate, reading, and bringing people together to make ideas happen. I'm also fascinated by the universe and love falling down a rabbit hole whenever something catches my interest.",
-      "Those interests influence how I approach engineering. They've taught me to ask better questions, explain ideas clearly, and think about the people relying on a system. I'm always curious, always learning, and always looking for the next problem worth solving.",
-      "If you're into data, AI, or just want to talk about the universe over coffee, I'd love to connect!"
+      "Hello, I'm Disu Ibukunoluwa, a data engineer and first-class(4.65/5.0) Computer Science graduate from Covenant University. I use Python, SQL, and data engineering tools to design, build, and maintain scalable data pipelines, automate data workflows, and transform raw data into reliable, accessible datasets that support business operations, analytics, and informed decision-making.",
+      "My experience spans fintech, product, and marketing data, including my work at Quidax, where I worked on the data team to support data extraction, transformation, and processing, ensuring reliable and accessible datasets for analytics and business decision-making.",
+      "I'm particularly interested in the intersection of data engineering and product development: building reliable data pipelines, designing scalable data architectures, and ensuring that data is efficiently collected, processed, and made accessible to support product analytics and business decisions. I also enjoy developing practical data engineering solutions, especially when they improve data quality, automate workflows, and solve real user or business problems."
     ]
   },
   "work": {
@@ -41,7 +38,7 @@
     "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations.",
     "note": "Specific responsibilities, tools, and project outcomes will be added after review."
   },
-  "projects_intro": "Practical work in data extraction, transformation, orchestration and reliability—with the decisions behind each pipeline documented.",
+  "projects_intro": "Selected data engineering projects, with the architecture, tools, and technical decisions behind each build.",
   "projects": [
     {
       "slug": "cryptocurrency-price-data-pipeline",
@@ -131,7 +128,7 @@
     {
       "institution": "Covenant University",
       "qualification": "B.Sc. Computer Science",
-      "status": "2026 · First Class Honours",
+      "status": "2026 · First Class Honours · CGPA 4.65/5.0",
       "description": "Technology has always fascinated me. Studying Computer Science gave me the foundation to explore how software, systems, and the technologies behind them work. I continue to develop my Data Engineering skills through practical learning and hands-on projects. Relevant coursework included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
     },
     {
@@ -164,22 +161,35 @@
       "role": "Data Intern",
       "dates": "March – September 2025",
       "company_url": "https://www.quidax.io/",
-      "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations."
+      "description": "Worked with the data team to support data extraction, transformation, and processing, helping maintain reliable and accessible datasets for analytics and business decision-making."
     }
   ],
   "skills": {
     "heading": "Skills & tools",
-    "intro": "My toolkit spans programming, data analysis, databases, cloud platforms, and development workflows. Proficiency levels are indicated where relevant.",
+    "intro": "The tools and techniques I use to build, transform, analyse, and deliver reliable data, alongside communication skills that make technical work useful.",
     "groups": [
       {
-        "label": "Python · Advanced",
+        "label": "Core data engineering",
         "items": [
-          "Machine learning",
+          "Python",
+          "SQL",
+          "Airbyte",
+          "BigQuery",
+          "dbt",
+          "ETL / ELT",
+          "Data pipelines",
+          "Data cleaning"
+        ]
+      },
+      {
+        "label": "Python & analytics",
+        "items": [
           "Pandas",
           "NumPy",
           "Scikit-learn",
           "Matplotlib",
-          "Data analysis & visualisation"
+          "Data analysis & visualisation",
+          "Data cleaning and visualisation"
         ]
       },
       {
@@ -188,7 +198,6 @@
           "PostgreSQL",
           "MySQL",
           "dbt",
-          "Data cleaning",
           "SQL querying, joins & aggregation"
         ]
       },
@@ -196,12 +205,14 @@
         "label": "Cloud · Beginner",
         "items": [
           "Amazon Web Services (AWS)",
-          "Google Cloud Platform (GCP)"
+          "Google Cloud Platform (GCP)",
+          "BigQuery"
         ]
       },
       {
-        "label": "Excel",
+        "label": "Excel & spreadsheets",
         "items": [
+          "Excel / Spreadsheets",
           "Dashboards",
           "Data visualisation",
           "Statistical testing"
@@ -215,10 +226,11 @@
         ]
       },
       {
-        "label": "Containerisation & data pipelines",
+        "label": "Containerisation & pipelines",
         "items": [
           "Docker",
-          "ETL / ELT"
+          "ETL / ELT",
+          "Airbyte"
         ]
       },
       {
@@ -226,6 +238,13 @@
         "items": [
           "GitHub",
           "Version-control workflows"
+        ]
+      },
+      {
+        "label": "Communication",
+        "items": [
+          "Creative writing",
+          "Public speaking"
         ]
       }
     ]
