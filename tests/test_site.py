@@ -91,6 +91,21 @@ class SiteTests(unittest.TestCase):
                      'CSV', 'crypto_dag'):
             self.assertIn(term, detail)
 
+    def test_portfolio_refresh(self):
+        html=(ROOT/'dist'/'index.html').read_text(encoding='utf-8')
+        self.assertNotIn('Selected work &amp; experience', html)
+        self.assertIn('id="certifications"', html)
+        self.assertIn('Agentic AI and AI Agents', html)
+        self.assertIn('Prompt Engineering Course', html)
+        self.assertIn('ClickHouse Certified Developer', html)
+        self.assertIn('AML detection for cryptocurrency transactions', html)
+        self.assertIn('96.65%', html)
+        self.assertIn('0.9315', html)
+        self.assertIn('href="/projects/aml-cryptocurrency-transaction-detection/"', html)
+        detail=(ROOT/'dist'/'projects'/'aml-cryptocurrency-transaction-detection'/'index.html').read_text(encoding='utf-8')
+        for term in ('Elliptic++', 'Random Forest', 'XGBoost', 'Logistic Regression', 'Render', 'T4 GPU'):
+            self.assertIn(term, detail)
+
     def test_escaped_user_content(self):
         data=deepcopy(self.data)
         data['hero']['lead']='</p><script>alert(1)</script>'
