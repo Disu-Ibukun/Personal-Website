@@ -24,9 +24,8 @@
     "eyebrow": "About me",
     "heading": "Hello, I'm Disu Ibukunoluwa.",
     "paragraphs": [
-      "Hello, I'm Disu Ibukunoluwa, a data engineer and first-class(4.65/5.0) Computer Science graduate from Covenant University. I use Python, SQL, and data engineering tools to design, build, and maintain scalable data pipelines, automate data workflows, and transform raw data into reliable, accessible datasets that support business operations, analytics, and informed decision-making.",
-      "My experience spans fintech, product, and marketing data, including my work at Quidax, where I worked on the data team to support data extraction, transformation, and processing, ensuring reliable and accessible datasets for analytics and business decision-making.",
-      "I'm particularly interested in the intersection of data engineering and product development: building reliable data pipelines, designing scalable data architectures, and ensuring that data is efficiently collected, processed, and made accessible to support product analytics and business decisions. I also enjoy developing practical data engineering solutions, especially when they improve data quality, automate workflows, and solve real user or business problems."
+      "I'm a first-class Computer Science graduate (4.65/5.0) from Covenant University, focused on data engineering. I use Python, SQL and cloud tools to build dependable pipelines, automate workflows and make raw data ready for analysis.",
+      "At Quidax, I supported the data team with extraction, transformation and processing. I'm interested in reliable data infrastructure, scalable systems and making information useful for the people building products and making decisions."
     ]
   },
   "work": {
@@ -38,8 +37,53 @@
     "description": "I completed an internship at Quidax, a cryptocurrency and financial technology company. It gave me exposure to a professional technology environment and a closer view of the relationship between data, technical work, and business operations.",
     "note": "Specific responsibilities, tools, and project outcomes will be added after review."
   },
-  "projects_intro": "Selected data engineering projects, with the architecture, tools, and technical decisions behind each build.",
+  "projects_intro": "Selected projects in data engineering and machine learning, with a focus on how the systems work and what they achieved.",
   "projects": [
+    {
+      "slug": "aml-cryptocurrency-transaction-detection",
+      "title": "AML detection for cryptocurrency transactions",
+      "category": "Final-year project / Machine learning / Graph analytics",
+      "year": "2026",
+      "summary": "Built a graph-aware system to flag potentially illicit blockchain transactions using the Elliptic++ dataset. Combined GAT embeddings with a stacked Random Forest, XGBoost and Logistic Regression model; achieved 96.65% validation recall and 0.9315 ROC-AUC.",
+      "published": true,
+      "stack": [
+        "Python",
+        "Elliptic++",
+        "GAT",
+        "Random Forest",
+        "XGBoost",
+        "Logistic Regression",
+        "Google Colab",
+        "Render"
+      ],
+      "challenge": "Detect potentially illicit cryptocurrency transactions from blockchain activity, using both transaction-level features and the relationships between transactions. Deploy the resulting system despite the limited resources of a free hosting tier.",
+      "approach": [
+        "Used the Elliptic++ dataset, which represents cryptocurrency transactions and their relationships as a graph.",
+        "Generated Graph Attention Network (GAT) embeddings to capture graph context alongside transaction features.",
+        "Trained a stacking ensemble: Random Forest and XGBoost predictions feed a Logistic Regression meta-learner. Training ran on Google Colab using a T4 GPU.",
+        "Deployed a working system to Render's free tier and cached embeddings to reduce resource demands."
+      ],
+      "architecture": "Elliptic++ transaction graph → GAT embeddings + transaction features → Random Forest and XGBoost → Logistic Regression meta-learner → illicit-transaction risk classification. Training: Google Colab (T4 GPU). Deployment: Render with embedding caching.",
+      "decisions": [
+        {
+          "title": "Add graph context",
+          "body": "Use GAT embeddings to represent transaction relationships, rather than relying on isolated transaction features alone."
+        },
+        {
+          "title": "Combine complementary models",
+          "body": "Use Random Forest and XGBoost as base learners, with Logistic Regression combining their outputs in a stacking ensemble."
+        },
+        {
+          "title": "Make deployment practical",
+          "body": "Cache computed embeddings so the deployed system can operate within Render free-tier resource constraints."
+        }
+      ],
+      "quality": "The reported 96.65% recall and 0.9315 ROC-AUC are validation metrics, not a guarantee of performance on new or live blockchain transactions.",
+      "outcomes": "Approximately 96.65% validation recall for illicit transactions and a ROC-AUC of 0.9315. Delivered a working deployed system on Render rather than only a training notebook, using embedding caching to address free-tier constraints.",
+      "lessons": "Graph structure can provide useful context for transaction classification, while deployment constraints require practical choices such as caching expensive intermediate representations.",
+      "github_url": "",
+      "image_file": ""
+    },
     {
       "slug": "cryptocurrency-price-data-pipeline",
       "title": "Bitcoin price ETL pipeline",
@@ -130,12 +174,6 @@
       "qualification": "B.Sc. Computer Science",
       "status": "2026 · First Class Honours · CGPA 4.65/5.0",
       "description": "Technology has always fascinated me. Studying Computer Science gave me the foundation to explore how software, systems, and the technologies behind them work. I continue to develop my Data Engineering skills through practical learning and hands-on projects. Relevant coursework included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
-    },
-    {
-      "institution": "ClickHouse",
-      "qualification": "Certified Developer",
-      "status": "Professional certification",
-      "description": "ClickHouse Certified Developer."
     }
   ],
   "footer": {
@@ -248,5 +286,28 @@
         ]
       }
     ]
-  }
+  },
+  "certifications": [
+    {
+      "title": "Agentic AI and AI Agents: A Primer for Leaders",
+      "issuer": "Vanderbilt University · Coursera",
+      "year": "August 2025",
+      "credential_url": "https://coursera.org/verify/A0V7YG5TT44C",
+      "image_file": ""
+    },
+    {
+      "title": "ClickHouse Certified Developer",
+      "issuer": "ClickHouse",
+      "year": "Professional certification",
+      "credential_url": "",
+      "image_file": ""
+    },
+    {
+      "title": "Prompt Engineering Course on Large Language Models (LLMs)",
+      "issuer": "OBTranslate · Covenant University",
+      "year": "February 2024",
+      "credential_url": "",
+      "image_file": ""
+    }
+  ]
 }
