@@ -33,7 +33,7 @@ class SiteTests(unittest.TestCase):
         self.assertIn('mailto:disuibukun00@gmail.com',html)
         self.assertIn('tel:+2347061027312',html)
         self.assertNotIn('Download CV',html)
-        self.assertIn('<a class="project-open"',html)
+        self.assertIn('class="project-open"',html)
         self.assertNotIn('Thrift by Parrots',html)
         self.assertIn('Rhodium Solicitors and Advocates',html)
 
@@ -41,9 +41,9 @@ class SiteTests(unittest.TestCase):
         html=(ROOT/'dist'/'index.html').read_text(encoding='utf-8')
         self.assertIn('src="/assets/portrait.webp"', html)
         self.assertTrue((ROOT/'dist'/'assets'/'portrait.webp').exists())
-        self.assertIn('Curious about data, systems', self.data['about']['heading'])
+        self.assertIn("Hello, I'm Disu Ibukunoluwa.", self.data['about']['heading'])
         self.assertIn('Technology has always fascinated me', html)
-        self.assertIn('over coffee', html)
+        self.assertIn('reliable data pipelines', html)
 
     def test_no_unpublished_project_page(self):
         for p in self.data['projects']:
@@ -75,11 +75,11 @@ class SiteTests(unittest.TestCase):
 
     def test_requested_content_updates(self):
         html = (ROOT/'dist'/'index.html').read_text(encoding='utf-8')
-        self.assertIn('>Experience<small>Data engineering', html)
+        self.assertIn('>Core toolkit<small>Python', html)
         self.assertNotIn('Experience at Quidax', html)
         self.assertIn('Computer Systems Engineering', html)
         self.assertIn('Rhodium Solicitors and Advocates', html)
-        self.assertIn('Docker', html)
+        self.assertIn('Docker', html)\n        self.assertIn('Airbyte', html)\n        self.assertIn('BigQuery', html)\n        self.assertIn('4.65/5.0', html)\n        self.assertIn('pipeline-visual', html)\n        self.assertLess(html.index('id="projects"'), html.index('id="beyond"'))\n        self.assertLess(html.index('id="skills"'), html.index('id="entrepreneurship"'))
         detail = (ROOT/'dist'/'projects'/'cryptocurrency-price-data-pipeline'/'index.html').read_text(encoding='utf-8')
         for term in ('CoinMarketCap', 'PostgreSQL', 'GitHub Actions', '0 0 1 * *',
                      'CSV', 'crypto_dag'):
