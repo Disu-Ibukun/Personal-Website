@@ -79,7 +79,13 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn('Experience at Quidax', html)
         self.assertIn('Computer Systems Engineering', html)
         self.assertIn('Rhodium Solicitors and Advocates', html)
-        self.assertIn('Docker', html)\n        self.assertIn('Airbyte', html)\n        self.assertIn('BigQuery', html)\n        self.assertIn('4.65/5.0', html)\n        self.assertIn('pipeline-visual', html)\n        self.assertLess(html.index('id="projects"'), html.index('id="beyond"'))\n        self.assertLess(html.index('id="skills"'), html.index('id="entrepreneurship"'))
+        self.assertIn('Docker', html)
+        self.assertIn('Airbyte', html)
+        self.assertIn('BigQuery', html)
+        self.assertIn('4.65/5.0', html)
+        self.assertIn('pipeline-visual', html)
+        self.assertLess(html.index('id="projects"'), html.index('id="beyond"'))
+        self.assertLess(html.index('id="skills"'), html.index('id="entrepreneurship"'))
         detail = (ROOT/'dist'/'projects'/'cryptocurrency-price-data-pipeline'/'index.html').read_text(encoding='utf-8')
         for term in ('CoinMarketCap', 'PostgreSQL', 'GitHub Actions', '0 0 1 * *',
                      'CSV', 'crypto_dag'):
