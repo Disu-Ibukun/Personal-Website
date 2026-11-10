@@ -282,13 +282,12 @@ def render_contact(data):
 
 def render_home(data):
     i = data['identity']
-    desc = ('Portfolio of ' + i['full_name'] + ', an emerging Data Engineer and First Class Computer Science graduate '
-            'with experience across fintech, leadership, and entrepreneurship.')
+    desc = ('Portfolio of ' + i['full_name'] + ', a Data Engineer and First Class Computer Science graduate (4.65/5.0) building reliable data pipelines.')
     return (head(data, i['full_name'] + ' | Data Engineer', desc)
             + header() + '<main id="main">'
-            + render_hero(data) + render_about(data) + render_education(data)
-            + render_experience(data) + render_skills(data) + render_projects(data)
-            + render_business(data) + render_leadership(data) + render_contact(data) + '</main>' + footer(data))
+            + render_hero(data) + render_about(data) + render_projects(data)
+            + render_experience(data) + render_skills(data) + render_education(data)
+            + render_leadership(data) + render_business(data) + render_contact(data) + '</main>' + footer(data))
 
 
 def case_section(heading, body_html):
