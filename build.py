@@ -57,7 +57,7 @@ def header(home=True):
       <div class="site-shell header-inner">
         <a class="wordmark" href="{prefix}#top" aria-label="Disu Ibukunoluwa — Home">
           <span class="monogram" aria-hidden="true">D.</span>
-          <span class="brand-name">Disu Ibukunoluwa<span class="brand-role">Emerging Data Engineer</span></span>
+          <span class="brand-name">Disu Ibukunoluwa<span class="brand-role">Data Engineer</span></span>
         </a>
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -131,7 +131,7 @@ def render_hero(data):
       <div class="facts" aria-label="Professional highlights">
         <div class="fact"><span class="fact-no">01</span><p>Computer Science graduate<small>First Class Honours · 2026</small></p></div>
         <div class="fact"><span class="fact-no">02</span><p>Experience<small>Data engineering · IT · Fintech</small></p></div>
-        <div class="fact"><span class="fact-no">03</span><p>Beyond engineering<small>Leadership · Operations · Business</small></p></div>
+        <div class="fact"><span class="fact-no">03</span><p>Core toolkit<small>Python · SQL · dbt · BigQuery</small></p></div>
       </div>
     </section>'''
 
@@ -143,7 +143,7 @@ def render_about(data):
     ps = [f'<p>{e(p)}</p>' for p in a['paragraphs']]
     midpoint = (len(ps) + 1) // 2
     return f'''<section id="about" class="section section-divider"><div class="site-shell section-grid">
-      {section_index('01', 'A little about me')}
+      {section_index('01', 'About')}
       <div data-reveal><h2 class="section-heading">About me</h2>
         <div class="section-prose"><div class="left-column">{''.join(ps[:midpoint])}</div>
         <div class="right-column">{''.join(ps[midpoint:])}</div></div>
@@ -195,7 +195,7 @@ def render_projects(data):
           <div class="project-side"><span class="project-category">{e(p['category'])}</span>{side}</div>
         </article>''')
     return f'''<section id="projects" class="section"><div class="site-shell section-grid">
-      {section_index('05', 'Projects')}
+      {section_index('02', 'Projects')}
       <div data-reveal><div class="eyebrow">Technical projects</div>
         <h2 class="section-heading">Projects</h2>
         <p class="projects-lead">{e(data['projects_intro'])}</p>
@@ -213,7 +213,7 @@ def render_leadership(data):
         rows.append(f'''<article class="leadership-item"><div><h3>{title}</h3>
           <p class="role-tag">{e(item['roles'])}</p></div><p>{e(item['description'])}</p></article>''')
     return f'''<section id="beyond" class="section section-divider"><div class="site-shell section-grid">
-      {section_index('07', 'Community')}
+      {section_index('06', 'Community')}
       <div data-reveal><div class="eyebrow">Leadership & community</div>
         <h2 class="section-heading">Leadership &amp; Community</h2>
         <p class="projects-lead">Organising people, making decisions, and explaining ideas well have been important parts of my experience, too.</p>
@@ -230,7 +230,7 @@ def render_business(data):
           <p class="description">{e(item['description'])}</p>
           <div class="business-role">{e(item['role'])}</div></article>''')
     return f'''<section class="section section-divider" id="entrepreneurship"><div class="site-shell section-grid">
-      {section_index('06', 'Entrepreneurship')}
+      {section_index('07', 'Entrepreneurship')}
       <div data-reveal><div class="eyebrow">A perspective shaped by practice</div>
         <h2 class="section-heading">Entrepreneurship</h2>
         <p class="projects-lead">Running and supporting online businesses has taught me to think about operations, customers, inventory, and how dependable information supports decisions.</p>
@@ -247,7 +247,7 @@ def render_education(data):
           <h3>{e(item['institution'])}</h3><p class="qualification">{e(item['qualification'])}</p>
           <p class="status">{e(item['status'])}</p><p class="education-description">{e(item['description'])}</p></article>''')
     return f'''<section id="education" class="section education-wrap"><div class="site-shell section-grid">
-      {section_index('02', 'Education')}
+      {section_index('05', 'Education')}
       <div data-reveal><div class="eyebrow">Education & development</div>
         <h2 class="section-heading">Education &amp; Development</h2>
         <div class="education-list">{''.join(cards)}</div>
@@ -284,7 +284,7 @@ def render_home(data):
     i = data['identity']
     desc = ('Portfolio of ' + i['full_name'] + ', an emerging Data Engineer and First Class Computer Science graduate '
             'with experience across fintech, leadership, and entrepreneurship.')
-    return (head(data, i['full_name'] + ' | Data Engineering & Beyond', desc)
+    return (head(data, i['full_name'] + ' | Data Engineer', desc)
             + header() + '<main id="main">'
             + render_hero(data) + render_about(data) + render_education(data)
             + render_experience(data) + render_skills(data) + render_projects(data)
