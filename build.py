@@ -270,11 +270,17 @@ def render_leadership(data):
 def render_business(data):
     cards=[]
     for idx, item in enumerate(data['businesses'], 1):
-        note = f'<p class="business-note">{e(item["footnote"])}</p>' if item.get('footnote') else ''
-        cards.append(f'''<article class="business"><span class="mini-index">{idx:02d}.</span>
+        url = item.get('instagram_url', '')
+        linked = valid_url(url)
+        start = (f'<a class="business business-link" href="{attr_url(url)}" target="_blank" '
+                 f'rel="noopener noreferrer" aria-label="Visit {e(item["name"])} on Instagram">'
+                 if linked else '<article class="business">')
+        end = '</a>' if linked else '</article>'
+        visit = '<span class="business-visit">View on Instagram ↗</span>' if linked else ''
+        cards.append(f'''{start}<span class="mini-index">{idx:02d}.</span>
           <h3>{e(item['name'])}</h3><p class="sub">{e(item['subtitle'])}</p>
           <p class="description">{e(item['description'])}</p>
-          <div class="business-role">{e(item['role'])}</div></article>''')
+          <div class="business-role">{e(item['role'])}</div>{visit}{end}''')
     return f'''<section class="section section-divider" id="entrepreneurship"><div class="site-shell section-grid">
       {section_index('08', 'Entrepreneurship')}
       <div data-reveal><div class="eyebrow">A perspective shaped by practice</div>
