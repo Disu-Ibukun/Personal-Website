@@ -357,6 +357,8 @@ def render_case(data, project):
             f'<h3>{e(x["title"])}</h3><p>{e(x["body"])}</p>' for x in project['decisions'])))
     if project.get('quality'):
         sections.append(case_section('Reliability & quality', f'<p>{e(project["quality"])}</p>'))
+    for detail in project.get('details', []):
+        sections.append(case_section(detail['heading'], ''.join(f'<p>{e(x)}</p>' for x in detail.get('paragraphs', []))))
     sections.append(case_section('Outcomes', f'<p>{e(project["outcomes"])}</p>'))
     sections.append(case_section('What I learned', f'<p>{e(project["lessons"])}</p>'))
     photo = safe_path(project.get('image_file', ''))
