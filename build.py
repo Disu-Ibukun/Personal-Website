@@ -64,7 +64,7 @@ def header(home=True):
         </button>
         <nav id="main-navigation" class="nav-links" aria-label="Primary navigation" data-nav-menu>
           <a href="{prefix}#about">About</a><a href="{prefix}#skills">Skills</a>
-          <a href="{prefix}#projects">Projects</a><a href="{prefix}#experience">Experience</a><a href="{prefix}#beyond">Leadership</a>
+          <a href="{prefix}#projects">Projects</a><a href="{prefix}#experience">Experience</a><a href="{prefix}#certifications">Certificates</a><a href="{prefix}#beyond">Leadership</a>
           <a class="nav-contact" href="{prefix}#contact">Get in touch ↗</a>
         </nav>
       </div>
@@ -83,7 +83,7 @@ def head(data, title, description, *, path='/'):
     social_image = f'<meta property="og:image" content="{og_image}"><meta name="twitter:card" content="summary_large_image">' if og_image else ''
     return f'''<!doctype html><html lang="en"><head>
       <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta name="theme-color" content="#f8f8f4"><meta name="color-scheme" content="light">
+      <meta name="theme-color" content="#f7f2ec"><meta name="color-scheme" content="light">
       <title>{e(title)}</title><meta name="description" content="{e(description)}">
       <meta property="og:type" content="website"><meta property="og:title" content="{e(title)}">
       <meta property="og:description" content="{e(description)}">{social_image}
@@ -114,7 +114,6 @@ def render_hero(data):
         picture_class = ''
     title = e(h['headline']).replace('Ibukunoluwa.', '<em>Ibukunoluwa.</em>', 1)
     return f'''<section class="hero site-shell" aria-labelledby="hero-title">
-      <div class="topline"><span>Disu Ibukunoluwa / Selected work &amp; experience</span><span class="time-stamp">Portfolio · 2026</span></div>
       <div class="hero-layout{' no-portrait' if not portrait else ''}">
         <div class="hero-copy"><div class="eyebrow">{e(i['role'])}</div>
           <h1 class="hero-title" id="hero-title">{title}</h1>
@@ -197,7 +196,13 @@ def render_projects(data):
                   '<span class="pipeline-connector" aria-hidden="true">→</span>'
                   '<span class="pipeline-node">PostgreSQL <small>Load</small></span>'
                   '</div>' if p.get('slug') == 'cryptocurrency-price-data-pipeline' else '')
-        stack = ''.join(f'<span class="project-tool">{e(tool)}</span>' for tool in p.get('stack', [])[:5])
+        if p.get('slug') == 'aml-cryptocurrency-transaction-detection':
+            visual = ('<div class="aml-visual" aria-label="Validation results: illicit transaction recall 96.65 percent and ROC AUC 0.9315">'
+                      '<span class="aml-kicker">Illicit transaction recall</span>'
+                      '<strong>96.65%</strong><small>Validation · Elliptic++</small>'
+                      '<span class="aml-rule"></span><span class="aml-kicker">ROC–AUC</span>'
+                      '<strong class="aml-auc">0.9315</strong></div>')
+        stack = ''.join(f'<span class="project-tool">{e(tool)}</span>' for tool in p.get('stack', [])[:6])
         cards.append(f'''<article class="project-card"><div class="project-num">{num:02d}</div>
           <div class="project-content"><div class="project-eyebrow">{e(p['category'])}</div>
             <h3 class="project-title">{heading}</h3><p>{e(p['summary'])}</p>
@@ -214,6 +219,37 @@ def render_projects(data):
     </div></section>'''
 
 
+
+def render_certifications(data):
+    cards = []
+    for item in data.get('certifications', []):
+        title = e(item['title'])
+        issuer = e(item['issuer'])
+        year = e(item.get('year', ''))
+        image = safe_path(item.get('image_file', ''))
+        if image:
+            preview = f'<img src="/{e(image)}" alt="Certificate for {title}, issued by {issuer}" loading="lazy">'
+        else:
+            preview = (f'<div class="certificate-art" aria-hidden="true">'
+                       f'<span class="certificate-art-issuer">{issuer}</span>'
+                       f'<span class="certificate-art-title">{title}</span>'
+                       f'<span class="certificate-art-rule"></span></div>')
+        credential = item.get('credential_url', '')
+        link = (f'<a class="certificate-link" href="{attr_url(credential)}" target="_blank" rel="noopener noreferrer">View credential ↗</a>'
+                if valid_url(credential) else '')
+        cards.append(f'''<article class="certificate-card">
+          <div class="certificate-preview">{preview}</div>
+          <div class="certificate-meta"><span class="certificate-year">{year}</span>
+          <h3>{title}</h3><p>{issuer}</p>{link}</div></article>''')
+    return f'''<section id="certifications" class="section section-divider"><div class="site-shell section-grid">
+      {section_index('06', 'Certifications')}
+      <div data-reveal><div class="eyebrow">Continued learning</div>
+        <h2 class="section-heading">Certifications</h2>
+        <p class="projects-lead">Courses and credentials that complement my work in data engineering, machine learning and AI.</p>
+        <div class="certificate-grid">{''.join(cards)}</div>
+      </div></div></section>'''
+
+
 def render_leadership(data):
     rows=[]
     for item in data['leadership']:
@@ -223,7 +259,7 @@ def render_leadership(data):
         rows.append(f'''<article class="leadership-item"><div><h3>{title}</h3>
           <p class="role-tag">{e(item['roles'])}</p></div><p>{e(item['description'])}</p></article>''')
     return f'''<section id="beyond" class="section section-divider"><div class="site-shell section-grid">
-      {section_index('06', 'Leadership')}
+      {section_index('07', 'Leadership')}
       <div data-reveal><div class="eyebrow">Leadership & community</div>
         <h2 class="section-heading">Leadership &amp; Community</h2>
         <p class="projects-lead">Organising people, making decisions, and explaining ideas well have been important parts of my experience, too.</p>
@@ -240,7 +276,7 @@ def render_business(data):
           <p class="description">{e(item['description'])}</p>
           <div class="business-role">{e(item['role'])}</div></article>''')
     return f'''<section class="section section-divider" id="entrepreneurship"><div class="site-shell section-grid">
-      {section_index('07', 'Entrepreneurship')}
+      {section_index('08', 'Entrepreneurship')}
       <div data-reveal><div class="eyebrow">A perspective shaped by practice</div>
         <h2 class="section-heading">Entrepreneurship</h2>
         <p class="projects-lead">Running and supporting online businesses has taught me to think about operations, customers, inventory, and how dependable information supports decisions.</p>
@@ -283,7 +319,7 @@ def render_contact(data):
     pending_markup = ('<div class="contact-pending">Contact details will be added here once they are ready to share.</div>'
                       if not links else '')
     return f'''<section id="contact" class="contact"><div class="site-shell">
-      <div class="contact-topline"><span>08 / Let’s connect</span><span>New conversations welcome</span></div>
+      <div class="contact-topline"><span>09 / Let’s connect</span><span>New conversations welcome</span></div>
       <h2 class="contact-title">Get in <em>touch.</em></h2>
       <p>I'm interested in early-career Data Engineering opportunities, thoughtful products, and conversations with people who care about building reliable systems.</p>
       {links_markup}{pending_markup}
@@ -297,7 +333,7 @@ def render_home(data):
             + header() + '<main id="main">'
             + render_hero(data) + render_about(data) + render_projects(data)
             + render_experience(data) + render_skills(data) + render_education(data)
-            + render_leadership(data) + render_business(data) + render_contact(data) + '</main>' + footer(data))
+            + render_certifications(data) + render_leadership(data) + render_business(data) + render_contact(data) + '</main>' + footer(data))
 
 
 def case_section(heading, body_html):
