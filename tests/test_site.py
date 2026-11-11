@@ -106,6 +106,15 @@ class SiteTests(unittest.TestCase):
         for term in ('Elliptic++', 'Random Forest', 'XGBoost', 'Logistic Regression', 'Render', 'T4 GPU'):
             self.assertIn(term, detail)
 
+    def test_business_instagram_links_and_personal_note(self):
+        html=(ROOT/'dist'/'index.html').read_text(encoding='utf-8')
+        self.assertIn('https://www.instagram.com/thriftbycaret/', html)
+        self.assertIn('https://www.instagram.com/bookcart.ng/', html)
+        self.assertEqual(html.count('class="business business-link"'), 2)
+        self.assertEqual(html.count('View on Instagram'), 2)
+        self.assertIn('reading fiction, public speaking and debate, and exploring Lagos', html)
+        self.assertIn('rel="noopener noreferrer" aria-label="Visit thriftbycaret on Instagram"', html)
+
     def test_escaped_user_content(self):
         data=deepcopy(self.data)
         data['hero']['lead']='</p><script>alert(1)</script>'

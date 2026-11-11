@@ -179,3 +179,10 @@ a:focus-visible,button:focus-visible{outline-color:var(--burgundy)}
  .certificate-art{margin:10px;padding:20px}
  .contact-title{font-size:clamp(42px,11vw,62px)}
 }
+
+/* Entrepreneurship: make the full business card an accessible external link. */
+.business-link{color:inherit;text-decoration:none;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.business-link:hover{transform:translateY(-3px);border-color:var(--burgundy);box-shadow:0 9px 24px rgba(61,44,40,.10)}
+.business-link:focus-visible{outline:3px solid var(--burgundy);outline-offset:4px}
+.business-visit{display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:var(--burgundy);font-size:13px;font-weight:700}
+@media(prefers-reduced-motion:reduce){.business-link{transition:none}.business-link:hover{transform:none}}
