@@ -128,6 +128,32 @@
       "lessons": "Orchestration, consistent transformation and explicit handling of downstream failures are all part of reliable data engineering.",
       "github_url": "",
       "image_file": ""
+    },
+    {
+      "slug": "marketing-data-platform-databricks-dbt",
+      "title": "Marketing Data Platform with Databricks & dbt",
+      "category": "Data engineering / Analytics engineering",
+      "year": "Case study in preparation",
+      "summary": "A cross-platform marketing data engineering case study focused on bringing Facebook Ads and Snapchat Ads data into Databricks, standardising metrics with dbt, and designing an analytics-ready model for campaign spend, impressions, clicks, CTR, CPC and CPM.",
+      "published": false,
+      "stack": [
+        "Databricks",
+        "dbt",
+        "SQL",
+        "Delta Lake",
+        "Unity Catalog",
+        "Elementary",
+        "CI/CD"
+      ],
+      "challenge": "Advertising performance data from Facebook and Snapchat comes in different structures, making cross-platform reporting and analysis manual and inconsistent.",
+      "approach": [],
+      "architecture": "Facebook Ads and Snapchat Ads source files → Databricks raw/bronze → dbt staging and analytical models → unified marketing data product → analytics, BI and AI consumption.",
+      "decisions": [],
+      "quality": "",
+      "outcomes": "",
+      "lessons": "",
+      "github_url": "",
+      "image_file": ""
     }
   ],
   "leadership": [
