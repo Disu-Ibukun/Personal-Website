@@ -25,7 +25,8 @@
     "heading": "Hello, I'm Disu Ibukunoluwa.",
     "paragraphs": [
       "I'm a first-class Computer Science graduate (4.65/5.0) from Covenant University, focused on data engineering. I use Python, SQL and cloud tools to build dependable pipelines, automate workflows and make raw data ready for analysis.",
-      "At Quidax, I supported the data team with extraction, transformation and processing. I'm interested in reliable data infrastructure, scalable systems and making information useful for the people building products and making decisions."
+      "At Quidax, I supported the data team with extraction, transformation and processing. I'm interested in reliable data infrastructure, scalable systems and making information useful for the people building products and making decisions.",
+      "Outside of work, I enjoy reading fiction, public speaking and debate, and exploring Lagos."
     ]
   },
   "work": {
@@ -158,14 +159,16 @@
       "subtitle": "Fashion accessories · E-commerce",
       "role": "Operations and logistics",
       "description": "I worked on operations and logistics and helped grow thriftbycaret into a sustainable business. It taught me how much consistency, customer experience, and sound operational decisions matter.",
-      "footnote": ""
+      "footnote": "",
+      "instagram_url": "https://www.instagram.com/thriftbycaret/"
     },
     {
       "name": "BookCart.ng",
       "subtitle": "Thrift books · E-commerce",
       "role": "Co-founder",
       "description": "I co-founded BookCart.ng, an online bookstore selling pre-loved books. In one year, I helped move the business from a loss in its first year to a profit in its second year, while working across inventory, operations, and logistics.",
-      "footnote": ""
+      "footnote": "",
+      "instagram_url": "https://www.instagram.com/bookcart.ng/"
     }
   ],
   "education": [
