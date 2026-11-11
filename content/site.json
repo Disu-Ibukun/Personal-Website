@@ -133,9 +133,9 @@
       "slug": "marketing-data-platform-databricks-dbt",
       "title": "Marketing Data Platform with Databricks & dbt",
       "category": "Data engineering / Analytics engineering",
-      "year": "Case study in preparation",
-      "summary": "A cross-platform marketing data engineering case study focused on bringing Facebook Ads and Snapchat Ads data into Databricks, standardising metrics with dbt, and designing an analytics-ready model for campaign spend, impressions, clicks, CTR, CPC and CPM.",
-      "published": false,
+      "year": "Completed · Data engineering case study",
+      "summary": "Built a unified marketing data platform using Databricks and dbt to bring Facebook Ads and Snapchat Ads reporting into one analytics-ready model. Implemented data standardisation, quality checks, Elementary observability, governed access, separated environments and a CI/CD workflow.",
+      "published": true,
       "stack": [
         "Databricks",
         "dbt",
@@ -145,15 +145,78 @@
         "Elementary",
         "CI/CD"
       ],
-      "challenge": "Advertising performance data from Facebook and Snapchat comes in different structures, making cross-platform reporting and analysis manual and inconsistent.",
-      "approach": [],
-      "architecture": "Facebook Ads and Snapchat Ads source files → Databricks raw/bronze → dbt staging and analytical models → unified marketing data product → analytics, BI and AI consumption.",
-      "decisions": [],
-      "quality": "",
-      "outcomes": "",
-      "lessons": "",
+      "challenge": "The marketing team had to retrieve campaign reports separately from Facebook Ads and Snapchat Ads, then manually combine exports in spreadsheets. Different field names, identifiers and reporting structures made comparing spend, impressions and clicks difficult. Other teams also lacked a reusable, documented, governed source for advertising performance.",
+      "approach": [
+        "Ingested the provided Facebook Ads and Snapchat Ads extracts into Databricks as the raw/bronze layer, preserving source-specific data before transformation.",
+        "Built separate dbt staging models for each platform to rename inconsistent fields, standardise types and apply source-level cleaning while retaining platform identity and traceability.",
+        "Developed a unified marketing analytical model with consistently defined campaign, date, platform, spend, impressions and clicks fields. The model supports comparisons across both advertising platforms.",
+        "Implemented metrics for click-through rate (CTR), cost per click (CPC) and cost per 1,000 impressions (CPM), handling zero denominators safely.",
+        "Used dbt documentation and generated lineage to explain model purposes, column definitions and dependencies for both technical and nontechnical consumers.",
+        "Integrated Elementary and dbt tests to monitor model health and protect downstream reporting against data quality problems.",
+        "Configured CI, development/staging and production separation, with a validated promotion workflow and service-principal authentication for production access."
+      ],
+      "architecture": "Facebook Ads and Snapchat Ads source extracts → Databricks raw / bronze tables → dbt platform-specific staging models → unified marketing analytical model → SQL analytics, BI dashboards and AI-enabled consumption. dbt tests, generated documentation, Elementary monitoring and Unity Catalog permissions provide quality and governance across the workflow.",
+      "decisions": [
+        {
+          "title": "Normalise at the source boundary",
+          "body": "Kept separate Facebook and Snapchat staging models so source-specific names, identifiers and types could be harmonised before combining records. This isolates platform differences from downstream consumers."
+        },
+        {
+          "title": "Define a consistent analytical grain",
+          "body": "Modelled advertising performance around date, platform and campaign/ad identifiers, with explicit metric definitions. The analytical layer avoids requiring consumers to learn each platform's raw schema; aggregation must respect the available source grain to prevent double-counting."
+        },
+        {
+          "title": "Choose materialisations deliberately",
+          "body": "Considered dbt view, table, incremental and ephemeral materialisations according to reuse, refresh needs and transformation cost rather than making every model a table. The assignment included advanced materialisation decisions and incremental-processing considerations."
+        },
+        {
+          "title": "Make metric calculations safe",
+          "body": "Designed CTR as clicks divided by impressions, CPC as spend divided by clicks, and CPM as spend divided by impressions multiplied by 1,000. Null-safe division prevents misleading errors where clicks or impressions are zero."
+        },
+        {
+          "title": "Treat production access as a service identity",
+          "body": "Separated CI/development from production and used a Databricks Service Principal for production authentication rather than relying on an individual's personal token. Scoped Unity Catalog permissions to the operations each identity needs."
+        },
+        {
+          "title": "Gate changes before production",
+          "body": "Used a branch-and-pull-request workflow with automated dbt build/test validation before merging and running production transformations."
+        }
+      ],
+      "quality": "Implemented dbt assertions around non-null and unique identifiers where appropriate, accepted platform values, duplicate records, and non-negative spend, impressions and clicks. dbt documentation and lineage describe how records move from each platform's staging models into the unified analytical layer. Elementary provides visibility into test outcomes, failed checks, anomalies and historical model health.",
+      "outcomes": "Completed a reusable marketing data platform that brings Facebook and Snapchat campaign data into a consistent, documented analytical interface. The resulting model supports cross-platform spend, impressions, clicks, CTR, CPC, CPM, campaign trends and performance comparisons for SQL, BI and AI-oriented consumption. The implementation also demonstrates separate environments, service-principal-based production access, Unity Catalog governance, dbt testing, Elementary observability and CI/CD. Quantified improvements in time saved, refresh latency or cost were not supplied.",
+      "lessons": "A useful data product requires more than successfully loading records: explicit grain and business definitions prevent misleading metrics, staging models absorb differences between sources, dbt tests and observability make issues visible, and environment separation plus least-privilege access are essential to operating a dependable analytics platform.",
       "github_url": "",
-      "image_file": ""
+      "image_file": "",
+      "details": [
+        {
+          "heading": "The unified data product",
+          "paragraphs": [
+            "The final analytical interface provides consistently named fields for date, platform, campaign, spend, impressions and clicks, with identifiers retained as appropriate for the grain.",
+            "It supports common stakeholder questions: How much was spent on Facebook versus Snapchat? Which campaigns generated the most clicks or impressions? How did campaign performance change over time? What are the CTR, CPC and CPM by platform or campaign?"
+          ]
+        },
+        {
+          "heading": "Metrics and business definitions",
+          "paragraphs": [
+            "CTR = clicks / impressions; CPC = spend / clicks; CPM = (spend / impressions) × 1,000. Zero clicks or impressions produce a null or other explicitly defined safe result instead of a divide-by-zero error.",
+            "Source currencies and reporting granularities must be aligned before spend is aggregated or compared; totals should be calculated from correctly deduplicated base rows rather than summing previously calculated rates."
+          ]
+        },
+        {
+          "heading": "Data quality and observability",
+          "paragraphs": [
+            "dbt tests validate key fields, uniqueness at the chosen grain, allowed platform labels, and non-negative advertising metrics. Referential integrity checks apply where dimensional references are used.",
+            "Elementary complements dbt tests with a monitoring view of failing tests, anomalies, and historical data-quality behaviour. Generated dbt documentation makes lineage and column meanings discoverable."
+          ]
+        },
+        {
+          "heading": "Environments, security and delivery",
+          "paragraphs": [
+            "The project demonstrates distinct CI, development/staging and production environments. Pull-request checks execute dbt validation before updates progress to production.",
+            "A Databricks Service Principal authenticates production workloads, while Unity Catalog grants control catalog, schema and object access. Production credentials are separate from a developer's personal account."
+          ]
+        }
+      ]
     }
   ],
   "leadership": [

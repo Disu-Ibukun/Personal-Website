@@ -73,6 +73,18 @@ class SiteTests(unittest.TestCase):
                 self.assertIn('Trade-off', project_page.read_text(encoding='utf-8'))
                 self.assertIn('/projects/'+p['slug']+'/',(output/'index.html').read_text(encoding='utf-8'))
 
+    def test_marketing_platform_case_study(self):
+        path = ROOT / 'dist' / 'projects' / 'marketing-data-platform-databricks-dbt' / 'index.html'
+        self.assertTrue(path.exists())
+        page = path.read_text(encoding='utf-8')
+        for phrase in ('Databricks', 'Snapchat Ads', 'Elementary', 'Unity Catalog',
+                       'The unified data product', 'Data quality and observability',
+                       'Environments, security and delivery', 'Service Principal',
+                       'Outcomes', 'Metrics and business definitions'):
+            self.assertIn(phrase, page)
+        self.assertIn('href="/projects/marketing-data-platform-databricks-dbt/"',
+                      (ROOT / 'dist' / 'index.html').read_text(encoding='utf-8'))
+
     def test_requested_content_updates(self):
         html = (ROOT/'dist'/'index.html').read_text(encoding='utf-8')
         self.assertIn('>Core toolkit<small>Python', html)
